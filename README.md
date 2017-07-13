@@ -1,59 +1,52 @@
-SublimeLinter-rubocop
-=========================
+SublimeLinter-contrib-cookstyle
+================================
 
-[![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-rubocop.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-rubocop)
+[![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-cookstyle.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-cookstyle)
 
-This linter plugin for [SublimeLinter](http://sublimelinter.readthedocs.org) provides an interface to [rubocop](https://github.com/bbatsov/rubocop). It will be used with files that have the `ruby`, `ruby on rails`, `rspec`, `betterruby`, `better rspec`, `ruby experimental` or `cucumber steps` syntaxes.
+This linter plugin for [SublimeLinter][docs] provides an interface to [cookstyle](https://github.com/chef/cookstyle). It will be used with files that have the `ruby`, `ruby on rails`, `rspec`, `betterruby`, `better rspec`, `ruby experimental` or `cucumber steps` syntaxes.
 
 ## Installation
-SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here](http://sublimelinter.readthedocs.org/en/latest/installation.html).
+SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
 
 ### Linter installation
-Before using this plugin, you must ensure that `rubocop` is installed on your system. To install `rubocop`, do the following:
+Before using this plugin, you must ensure that `cookstyle` is installed on your system. To install `cookstyle`, do the following:
 
-1. Install [Ruby](http://ruby-lang.org).
+1. Install [Chef DK](https://downloads.chef.io/chefdk), which comes with `cookstyle`
 
-1. Install `rubocop` by typing the following in a terminal:
+1. Alternately, install `cookstyle` directly by typing the following in a terminal:
    ```
-   [sudo] gem install rubocop
+   [sudo] gem install cookstyle
    ```
 
-1. If you are using `rvm` or `rbenv`, ensure that they are loaded in your shell’s correct startup file. See [here](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#adjusting-shell-startup-files) for more information.
+1. If you are using `rbenv` or `rvm`, ensure that they are loaded in your shell’s correct startup file. See [here](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#shell-startup-files) for more information.
 
-**Note:** This plugin requires `rubocop` 0.34.0 or later.
+
+**Note:** This plugin requires `cookstyle` v0.0.1 or later.
 
 ### Linter configuration
-In order for `rubocop` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. Before going any further, please read and follow the steps in [“Finding a linter executable”](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable) through “Validating your PATH” in the documentation.
+In order for `cookstyle` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. Before going any further, please read and follow the steps in [“Finding a linter executable”](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable) through “Validating your PATH” in the documentation.
 
-Once `rubocop` is installed and configured, you can proceed to install the SublimeLinter-rubocop plugin if it is not yet installed.
+Once you have installed and configured `cookstyle`, you can proceed to install the SublimeLinter-contrib-cookstyle plugin if it is not yet installed.
 
 ### Plugin installation
-Please use [Package Control](https://sublime.wbond.net/installation) to install the linter plugin. This will ensure that the plugin will be updated when new versions are available. If you want to install from source so you can modify the source code, you probably know what you are doing so we won’t cover that here.
+Please use [Package Control][pc] to install the linter plugin. This will ensure that the plugin will be updated when new versions are available. If you want to install from source so you can modify the source code, you probably know what you are doing so we won’t cover that here.
 
 To install via Package Control, do the following:
 
-1. Within Sublime Text, bring up the [Command Palette](http://docs.sublimetext.info/en/sublime-text-3/extensibility/command_palette.html) and type `install`. Among the commands you should see `Package Control: Install Package`. If that command is not highlighted, use the keyboard or mouse to select it. There will be a pause of a few seconds while Package Control fetches the list of available plugins.
+1. Within Sublime Text, bring up the [Command Palette][cmd] and type `install`. Among the commands you should see `Package Control: Install Package`. If that command is not highlighted, use the keyboard or mouse to select it. There will be a pause of a few seconds while Package Control fetches the list of available plugins.
 
-1. When the plugin list appears, type `rubocop`. Among the entries you should see `SublimeLinter-rubocop`. If that entry is not highlighted, use the keyboard or mouse to select it.
+1. When the plugin list appears, type `cookstyle`. Among the entries you should see `SublimeLinter-contrib-cookstyle`. If that entry is not highlighted, use the keyboard or mouse to select it.
 
 ## Settings
-For general information on how SublimeLinter works with settings, please see [Settings](http://sublimelinter.readthedocs.org/en/latest/settings.html). For information on generic linter settings, please see [Linter Settings](http://sublimelinter.readthedocs.org/en/latest/linter_settings.html).
+For general information on how SublimeLinter works with settings, please see [Settings][settings]. For information on generic linter settings, please see [Linter Settings][linter-settings].
 
-You can configure rubocop exactly the way you would from the command line, using `.rubocop.yml` configuration files. For more information, see the [rubocop documentation](https://github.com/bbatsov/rubocop#configuration).
+You can configure `cookstyle` exactly the way you would from the command line, using `.rubocop.yml` configuration files. For more information, see the [`rubocop` documentation](https://github.com/bbatsov/rubocop#configuration).
 
 By default, the linter plugin looks for a config file called `.rubocop.yml` in the current directory and its parents. To override the config file path, you would add this to the Sublime Linter User Settings (found in `Menu->Preferences->Package Settings->SublimeLinter->Settings - User`):
 
 ```json
-"rubocop": {
+"cookstyle": {
     "args": ["--config", "path/to/config.yml"]
-}
-```
-
-If you are using Bundler and would like to use the locked rubocop version (which will also allow you to use `inherit_gem` in `rubocop.yml`, in case you are inheriting from another gem in the project), you must set `use_bundle_exec` to true:
-
-```json
-"rubocop": {
-    "use_bundle_exec": true
 }
 ```
 
@@ -66,11 +59,20 @@ If you would like to contribute enhancements or fixes, please do the following:
 1. Make a pull request.
 1. Be patient.  ;-)
 
-Please note that modications should follow these coding guidelines:
+Please note that modifications should follow these coding guidelines:
 
 - Indent is 4 spaces.
 - Code should pass flake8 and pep257 linters.
 - Vertical whitespace helps readability, don’t be afraid to use it.
-- Please use descriptive variable names, no abbrevations unless they are very well known.
+- Please use descriptive variable names, no abbreviations unless they are very well known.
 
 Thank you for helping out!
+
+[docs]: http://sublimelinter.readthedocs.org
+[installation]: http://sublimelinter.readthedocs.org/en/latest/installation.html
+[locating-executables]: http://sublimelinter.readthedocs.org/en/latest/usage.html#how-linter-executables-are-located
+[pc]: https://sublime.wbond.net/installation
+[cmd]: http://docs.sublimetext.info/en/sublime-text-3/extensibility/command_palette.html
+[settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html
+[linter-settings]: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
+[inline-settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings

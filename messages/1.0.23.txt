@@ -1,3 +1,0 @@
-SublimeLinter-rubocop 1.0.23
-----------------------------
-- Support more ruby syntaxes again

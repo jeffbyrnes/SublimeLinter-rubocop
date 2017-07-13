@@ -2,22 +2,23 @@
 # linter.py
 # Linter for SublimeLinter3, a code checking framework for Sublime Text 3
 #
-# Written by Aparajita Fishman
+# Written by Jeff Byrnes
+# Based on SublimeLinter-rubocop, written by Aparajita Fishman
 # Contributors: Francis Gulotta, Josh Hagins, Mark Haylock
 # Copyright (c) 2015-2016 The SublimeLinter Community
 # Copyright (c) 2013-2014 Aparajita Fishman
+# Copyright (c) 2017 Jeff Byrnes
 #
 # License: MIT
 #
 
-"""This module exports the Rubocop plugin class."""
+"""This module exports the Cookstyle plugin class."""
 
-import os
-from SublimeLinter.lint import RubyLinter
+from SublimeLinter.lint import RubyLinter, util
 
 
-class Rubocop(RubyLinter):
-    """Provides an interface to rubocop."""
+class Cookstyle(RubyLinter):
+    """Provides an interface to cookstyle."""
 
     syntax = (
         'better rspec',
@@ -29,26 +30,31 @@ class Rubocop(RubyLinter):
         'ruby'
     )
     cmd = None
-    executable = 'ruby'
-    version_args = '-S rubocop --version'
+    executable = 'cookstyle'
+    version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
-    version_requirement = '>= 0.34.0'
+    version_requirement = '>= 0.0.1'
     regex = (
         r'^.+?:(?P<line>\d+):(?P<col>\d+): '
         r'(:?(?P<warning>[RCW])|(?P<error>[EF])): '
         r'(?P<message>.+)'
     )
+    multiline = False
+    line_col_base = (1, 1)
+    tempfile_suffix = None
+    error_stream = util.STREAM_BOTH
+    selectors = {}
+    word_re = None
+    defaults = {}
+    inline_settings = None
+    inline_overrides = None
+    comment_re = r'\s*#'
 
     def cmd(self):
         """Build command, using STDIN if a file path can be determined."""
 
         settings = self.get_view_settings()
-        command = ['ruby', '-S']
-
-        if settings.get('use_bundle_exec', False):
-            command.extend(['bundle', 'exec'])
-
-        command.extend(['rubocop', '--format', 'emacs'])
+        command = ['cookstyle', '--format', 'emacs']
 
         # Set tempfile_suffix so by default a tempfile is passed onto rubocop:
         self.tempfile_suffix = 'rb'

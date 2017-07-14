@@ -14,6 +14,7 @@
 
 """This module exports the Cookstyle plugin class."""
 
+import os
 from SublimeLinter.lint import RubyLinter, util
 
 

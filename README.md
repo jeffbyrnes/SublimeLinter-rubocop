@@ -1,7 +1,7 @@
 SublimeLinter-contrib-cookstyle
 ================================
 
-[![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-cookstyle.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-cookstyle)
+[![Build Status](https://travis-ci.org/jeffbyrnes/SublimeLinter-contrib-cookstyle.svg?branch=master)](https://travis-ci.org/jeffbyrnes/SublimeLinter-contrib-cookstyle)
 
 This linter plugin for [SublimeLinter][docs] provides an interface to [cookstyle](https://github.com/chef/cookstyle). It will be used with files that have the `ruby`, `ruby on rails`, `rspec`, `betterruby`, `better rspec`, `ruby experimental` or `cucumber steps` syntaxes.
 

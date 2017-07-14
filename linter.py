@@ -54,7 +54,6 @@ class Cookstyle(RubyLinter):
     def cmd(self):
         """Build command, using STDIN if a file path can be determined."""
 
-        settings = self.get_view_settings()
         command = ['cookstyle', '--format', 'emacs']
 
         # Set tempfile_suffix so by default a tempfile is passed onto rubocop:

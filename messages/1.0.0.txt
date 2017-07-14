@@ -1,0 +1,4 @@
+SublimeLinter-contrib-cookstyle 1.0.0
+-------------------------------------
+
+* Initial release, forked from `SublimeLinter-rubocop`

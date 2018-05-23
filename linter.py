@@ -21,11 +21,6 @@ from SublimeLinter.lint import RubyLinter, util
 class Cookstyle(RubyLinter):
     """Provides an interface to cookstyle."""
 
-    cmd = None
-    executable = 'cookstyle'
-    version_args = '--version'
-    version_re = r'(?P<version>\d+\.\d+\.\d+)'
-    version_requirement = '>= 0.0.1'
     regex = (
         r'^.+?:(?P<line>\d+):(?P<col>\d+): '
         r'(:?(?P<warning>[RCW])|(?P<error>[EF])): '
@@ -35,8 +30,6 @@ class Cookstyle(RubyLinter):
     defaults = {
       "selector": "source.ruby"
     }
-    line_col_base = (1, 1)
-    tempfile_suffix = None
     error_stream = util.STREAM_BOTH
     word_re = None
     inline_settings = None

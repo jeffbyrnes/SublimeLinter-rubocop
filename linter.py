@@ -15,10 +15,10 @@
 """This module exports the Cookstyle plugin class."""
 
 import os
-from SublimeLinter.lint import RubyLinter, util
+from SublimeLinter.lint import Linter, util
 
 
-class Cookstyle(RubyLinter):
+class Cookstyle(Linter):
     """Provides an interface to cookstyle."""
 
     regex = (
@@ -39,7 +39,7 @@ class Cookstyle(RubyLinter):
     def cmd(self):
         """Build command, using STDIN if a file path can be determined."""
 
-        command = ['cookstyle', '--format', 'emacs']
+        command = ['chef', 'exec', 'cookstyle', '--format', 'emacs']
 
         # Set tempfile_suffix so by default a tempfile is passed onto rubocop:
         self.tempfile_suffix = 'rb'

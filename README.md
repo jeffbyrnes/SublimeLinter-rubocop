@@ -13,14 +13,6 @@ Before using this plugin, you must ensure that `cookstyle` is installed on your 
 
 1. Install [Chef DK](https://downloads.chef.io/chefdk), which comes with `cookstyle`
 
-1. Alternately, install `cookstyle` directly by typing the following in a terminal:
-   ```
-   [sudo] gem install cookstyle
-   ```
-
-1. If you are using `rbenv` or `rvm`, ensure that they are loaded in your shell’s correct startup file. See [here](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#shell-startup-files) for more information.
-
-
 **Note:** This plugin requires `cookstyle` v0.0.1 or later.
 
 ### Linter configuration

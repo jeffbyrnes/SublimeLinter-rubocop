@@ -21,15 +21,6 @@ from SublimeLinter.lint import RubyLinter, util
 class Cookstyle(RubyLinter):
     """Provides an interface to cookstyle."""
 
-    syntax = (
-        'better rspec',
-        'betterruby',
-        'cucumber steps',
-        'rspec',
-        'ruby experimental',
-        'ruby on rails',
-        'ruby'
-    )
     cmd = None
     executable = 'cookstyle'
     version_args = '--version'
@@ -41,12 +32,13 @@ class Cookstyle(RubyLinter):
         r'(?P<message>.+)'
     )
     multiline = False
+    defaults = {
+      "selector": "source.ruby"
+    }
     line_col_base = (1, 1)
     tempfile_suffix = None
     error_stream = util.STREAM_BOTH
-    selectors = {}
     word_re = None
-    defaults = {}
     inline_settings = None
     inline_overrides = None
     comment_re = r'\s*#'

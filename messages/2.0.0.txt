@@ -1,0 +1,5 @@
+SublimeLinter-contrib-cookstyle 2.0.0
+-------------------------------------
+
+* Refactored for SublimeLinter 4
+* Refactored to use ChefDK-installed `cookstyle` exclusively

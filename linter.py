@@ -17,7 +17,7 @@ class Rubocop(RubyLinter):
 
         settings = self.get_view_settings()
 
-        command = ['ruby', '-S']
+        command = []
 
         if settings.get('use_bundle_exec', False):
             command.extend(['bundle', 'exec'])
